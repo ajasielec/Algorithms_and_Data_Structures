@@ -1,0 +1,32 @@
+string* split(string s, string delimiter) {
+
+    int pos_start = 0;
+    int pos_end;
+    int delim_len = delimiter.length();
+
+    string token;
+    static string buffer[10];
+
+    int idx = 0;
+
+    while ((pos_end = s.find(delimiter, pos_start)) != string::npos) {
+
+        token = s.substr(pos_start, pos_end - pos_start);
+        pos_start = pos_end + delim_len;
+
+        buffer[idx] = token;
+        idx++;
+
+        cout << idx << endl;
+
+    }
+
+    token = s.substr(pos_start, pos_end - pos_start);
+    pos_start = pos_end + delim_len;
+    buffer[idx] = token;
+
+    //cout << buffer[0] << endl;
+
+    return buffer;
+
+}
